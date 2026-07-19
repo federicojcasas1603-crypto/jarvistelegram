@@ -108,3 +108,14 @@ class ChangeDirectoryCommand(Command):
 # Auto-registro
 get_registry().register(ListDirectoryCommand())
 get_registry().register(ChangeDirectoryCommand())
+
+
+class DirCommand(ListDirectoryCommand):
+    """Alias de /ls para compatibilidad con style Windows."""
+
+    @property
+    def name(self) -> str:
+        return "dir"
+
+
+get_registry().register(DirCommand())
