@@ -71,6 +71,10 @@ ALLOWED_ACTIONS: set[str] = {
     # --- Memoria ---
     "save_memory",
     "recall_memory",
+    # --- Navegación ---
+    "list_directory",
+    "dir",
+    "cd",
 }
 
 # ============================================
