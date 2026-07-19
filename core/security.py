@@ -77,6 +77,9 @@ ALLOWED_ACTIONS: set[str] = {
     "cd",
     # --- Lista de apps ---
     "list_programs",
+    # --- Notificaciones ---
+    "notify",
+    "popup",
 }
 
 # ============================================

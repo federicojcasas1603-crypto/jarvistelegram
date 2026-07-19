@@ -201,4 +201,12 @@ ACTION_SCHEMAS: dict[str, dict[str, list[tuple[str, type | None]]]] = {
         "required": [],
         "optional": [],
     },
+    "notify": {
+        "required": [("message", str)],
+        "optional": [("title", str)],
+    },
+    "popup": {
+        "required": [("message", str)],
+        "optional": [("title", str)],
+    },
 }

@@ -141,6 +141,8 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         "list_directory": "Archivos",
         "cd": "Archivos",
         "list_programs": "Programas",
+        "notify": "Utilidades",
+        "popup": "Utilidades",
     }
 
     for name, cmd in all_commands:
