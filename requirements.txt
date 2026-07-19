@@ -1,0 +1,26 @@
+# ============================================
+# JARVIS TELEGRAM - Dependencias
+# ============================================
+# Instalar con: pip install -r requirements.txt
+# ============================================
+# --- Bot de Telegram ---
+# Framework async para bots de Telegram. Versión 20+ usa asyncio nativo.
+python-telegram-bot==21.6
+# --- Inteligencia Artificial ---
+# Cliente oficial de Google Gemini (Google AI Studio).
+google-generativeai==0.8.3
+# --- Variables de entorno ---
+# Carga variables desde archivos .env de forma segura.
+python-dotenv==1.0.1
+# --- Sistema ---
+# Información del sistema: CPU, RAM, disco, procesos.
+psutil==6.1.1
+# --- Imágenes ---
+# Capturas de pantalla y procesamiento de imágenes.
+Pillow==11.1.0
+# --- Portapapeles ---
+# Leer y escribir en el portapapeles de forma multiplataforma.
+pyperclip==1.9.0
+# --- Archivos async ---
+# Operaciones de archivos asíncronas para no bloquear el event loop.
+aiofiles==24.1.0

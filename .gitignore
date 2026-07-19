@@ -1,0 +1,48 @@
+# ============================================
+# JARVIS TELEGRAM - Git Ignore
+# ============================================
+# --- Variables de entorno (SENSIBLE) ---
+.env
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+dist/
+build/
+# --- Entornos virtuales ---
+venv/
+env/
+.venv/
+ENV/
+# --- Logs (generados en runtime) ---
+logs/*.log
+logs/*.json
+# --- Datos temporales ---
+data/screenshots/*.png
+data/screenshots/*.jpg
+data/screenshots/*.bmp
+# --- Memoria persistente (datos del usuario) ---
+data/memory/*.json
+# --- IDE / Editores ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+# --- Sistema operativo ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+ehthumbs.db
+# --- Archivos de prueba.coverage ---
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+.pytest_cache/
