@@ -75,6 +75,8 @@ ALLOWED_ACTIONS: set[str] = {
     "list_directory",
     "dir",
     "cd",
+    # --- Lista de apps ---
+    "list_programs",
 }
 
 # ============================================

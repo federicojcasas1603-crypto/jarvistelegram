@@ -140,6 +140,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         "recall_memory": "Memoria",
         "list_directory": "Archivos",
         "cd": "Archivos",
+        "list_programs": "Programas",
     }
 
     for name, cmd in all_commands:

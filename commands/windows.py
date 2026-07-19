@@ -165,3 +165,35 @@ class CloseProgramCommand(Command):
 # Auto-registro
 get_registry().register(OpenProgramCommand())
 get_registry().register(CloseProgramCommand())
+
+
+class ListProgramsCommand(Command):
+    """Lista las aplicaciones disponibles para abrir."""
+
+    @property
+    def name(self) -> str:
+        return "list_programs"
+
+    @property
+    def description(self) -> str:
+        return "Muestra la lista de aplicaciones que puedes abrir"
+
+    def execute(self, params: dict[str, Any]) -> CommandResult:
+        # Agrupar por ejecutable para no repetir
+        seen: dict[str, list[str]] = {}
+        for alias, exe in sorted(KNOWN_PROGRAMS.items()):
+            if exe not in seen:
+                seen[exe] = []
+            seen[exe].append(alias)
+
+        lines = ["Aplicaciones disponibles:\n"]
+        for exe, aliases in sorted(seen.items()):
+            names = ", ".join(f"/{a}" for a in aliases)
+            lines.append(f"  {exe}: {names}")
+
+        lines.append(f"\nTotal: {len(seen)} aplicaciones")
+        lines.append("\nTambién puedes abrir cualquier programa\ninstalado usando su nombre exacto.")
+        return CommandResult.ok("\n".join(lines))
+
+
+get_registry().register(ListProgramsCommand())

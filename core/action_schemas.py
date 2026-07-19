@@ -197,4 +197,8 @@ ACTION_SCHEMAS: dict[str, dict[str, list[tuple[str, type | None]]]] = {
         "required": [],
         "optional": [("path", str)],
     },
+    "list_programs": {
+        "required": [],
+        "optional": [],
+    },
 }
