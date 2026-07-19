@@ -34,10 +34,16 @@ class ListDirectoryCommand(Command):
         user_id = params.get("_user_id", 0)
         path = params.get("path", "").strip()
 
-        if not path:
-            path = _user_dirs.get(user_id, os.path.expanduser("~"))
+        current = _user_dirs.get(user_id, os.path.expanduser("~"))
 
-        path = os.path.expanduser(path)
+        if not path:
+            path = current
+        else:
+            path = os.path.expanduser(path)
+            if not os.path.isabs(path):
+                path = os.path.join(current, path)
+
+        path = os.path.abspath(path)
 
         if not os.path.isdir(path):
             return CommandResult.fail(f"Carpeta no encontrada: {path}")
@@ -88,21 +94,27 @@ class ChangeDirectoryCommand(Command):
         user_id = params.get("_user_id", 0)
         path = params.get("path", "").strip()
 
+        current = _user_dirs.get(user_id, os.path.expanduser("~"))
+
         if not path or path == "~":
             path = os.path.expanduser("~")
         elif path == "..":
-            current = _user_dirs.get(user_id, os.path.expanduser("~"))
             path = os.path.dirname(current)
         elif path == ".":
-            path = _user_dirs.get(user_id, os.path.expanduser("~"))
+            path = current
         else:
             path = os.path.expanduser(path)
+            # Si es ruta relativa, combinar con directorio actual
+            if not os.path.isabs(path):
+                path = os.path.join(current, path)
+
+        path = os.path.abspath(path)
 
         if not os.path.isdir(path):
             return CommandResult.fail(f"Carpeta no encontrada: {path}")
 
-        _user_dirs[user_id] = os.path.abspath(path)
-        return CommandResult.ok(f"Directorio actual: {_user_dirs[user_id]}")
+        _user_dirs[user_id] = path
+        return CommandResult.ok(f"Directorio actual: {path}")
 
 
 # Auto-registro
